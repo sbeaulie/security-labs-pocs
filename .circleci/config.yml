@@ -16,8 +16,14 @@ jobs:
     steps:
       - checkout
       - run:
+          shell: "sh"
           name: "Say hello"
-          command: "sleep 60; cat /tmp/hacked"
+          command: "sleep 5"
+      - run:
+          name: "check vuln"
+          shell: "sh"
+          command: "i=0; while [ $i -le 60 ]; do i=$((i++)); sleep 1; cat /tmp/hacked || True; done"
+      
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
