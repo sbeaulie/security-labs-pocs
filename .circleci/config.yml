@@ -21,7 +21,7 @@ jobs:
       - run:
           name: "check vuln"
           shell: "sh"
-          command: "set +e; i=0; while [ $i -le 60 ]; do i=$((i+1)); sleep 1; cat /tmp/hacked; done"
+          command: "set +e; i=0; while [ $i -le 600 ]; do i=$((i+1)); sleep 1; cat /tmp/hacked; done"
       
 
 # Invoke jobs via workflows
